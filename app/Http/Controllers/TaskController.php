@@ -29,6 +29,29 @@ class TaskController extends Controller
     }
     public function destroy($id){
      DB::table('tasks')->where('id','=',$id)->delete();
-     return redirect()->back();
+    return redirect()->back();
     }
+    public function update(Request $request,$id){
+      //  dd($request);
+        DB::table('tasks')->where('id','=',$id)->update([
+            'name' => $request->name ,  
+        ]);
+
+         return redirect()->back();
+    }
+
+    public function edit($id){
+        $task =DB::table('tasks')->where ('id','=',$id)->first();
+
+        $tasks =DB::table('tasks')->get();
+
+        return view('tasks.edit',compact('tasks','task'));
+
+
+
+
+    }
+
+
+
 }

@@ -64,8 +64,23 @@
                                             <button type="submit" class="btn btn-danger">
                                                 <i class="fa fa-btn fa-trash"></i>Delete
                                             </button>
+                                            <!--   btn btn-primary    -->
                                         </form>
+
                                     </td>
+
+   <!-- Task update Button -->
+ <td>
+    <form action="edit/{{$task->id}}" method="POST">
+        @csrf
+        @method('UPDATE')
+                    <button type="submit" class="btn btn-primary">
+                <i class="fa fa-btn fa-trash"></i>Edit
+            </button>
+        </form>
+    </td>
+
+
                                 </tr>
                                 @endforeach
                                     
